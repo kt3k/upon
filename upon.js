@@ -21,10 +21,14 @@
 
     pcPrototype.done = function (onResolve) {
         this.then(onResolve);
+
+        return this;
     };
 
     pcPrototype.fail = function (onReject) {
         this.then(null, onReject);
+
+        return this;
     };
 
     pcPrototype.loadHandlers = function (promise) {

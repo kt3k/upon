@@ -1,0 +1,47 @@
+<script src="./jquery-2.1.1.min.js"></script>
+<script src="./upon.js"></script>
+
+<style>
+
+#id {
+    margin: 30px;
+    border: solid 1px black;
+    width: 200px;
+    height: 200px;
+}
+
+#title {
+    text-align: right;
+}
+
+</style>
+
+<body>
+
+<div id="title">upon.js experiment</div>
+
+<div id="id"></div>
+
+<script>
+
+$(document).ready(function () {
+    $('#id').upon('click').then(function (data) {
+        console.log('then!');
+        console.log(data);
+
+        return data;
+    }).done(function (data) {
+        console.log('done!');
+        console.log(data);
+
+        throw data;
+    }).fail(function (data) {
+        console.log('fail!');
+
+        console.log(data);
+    });
+});
+
+</script>
+
+</body>
